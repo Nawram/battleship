@@ -1,24 +1,38 @@
 package org.academiadecodigo.battleship;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import org.academiadecodigo.simplegraphics.graphics.Color;
+import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.mouse.Mouse;
+import org.academiadecodigo.simplegraphics.mouse.MouseEvent;
+import org.academiadecodigo.simplegraphics.mouse.MouseEventType;
+import org.academiadecodigo.simplegraphics.mouse.MouseHandler;
 
-/**
- * Created by codecadet on 14/10/17.
- */
-public class Player implements MouseHandler{
+public class Player implements MouseHandler {
 
-    private int tries;
+    private int x;
+    private int y;
 
-    private MouseHandler mouseHandler;
-
-    //shoot using position selected with mouse
-    public void shoot() {
+    public Player() {
+        Mouse mouse = new Mouse(this);
+        mouse.addEventListener(MouseEventType.MOUSE_CLICKED);
     }
 
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        x = (int) e.getX();
+        y = (int) e.getY();
+    }
 
+    @Override
+    public void mouseMoved(MouseEvent e) {
+
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
 }
